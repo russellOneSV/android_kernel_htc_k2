@@ -554,7 +554,10 @@ ehci_hub_status_data (struct usb_hcd *hcd, char *buf)
 			status = STS_PCD;
 		}
 	}
-	
+
+	if (ehci->resuming_ports)
+		mod_timer(&hcd->rh_timer, jiffies + msecs_to_jiffies(25));
+
 	spin_unlock_irqrestore (&ehci->lock, flags);
 	return status ? retval : 0;
 }
