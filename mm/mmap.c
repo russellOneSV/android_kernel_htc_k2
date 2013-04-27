@@ -1226,9 +1226,7 @@ struct vm_area_struct *find_vma(struct mm_struct *mm, unsigned long addr)
 	struct vm_area_struct *vma = NULL;
 
 	if (mm) {
-		
-		
-		vma = mm->mmap_cache;
+		vma = ACCESS_ONCE(mm->mmap_cache);
 		if (!(vma && vma->vm_end > addr && vma->vm_start <= addr)) {
 			struct rb_node * rb_node;
 
