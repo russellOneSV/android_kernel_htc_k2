@@ -1,8 +1,8 @@
 VERSION = 3
 PATCHLEVEL = 4
-SUBLEVEL = 15
+SUBLEVEL = 16
 EXTRAVERSION =-Jmz
-NAME = Saber-toothed Squirrel
+NAME = Raunchy Racoon
 
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
