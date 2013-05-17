@@ -1699,8 +1699,8 @@ int tcp_retransmit_skb(struct sock *sk, struct sk_buff *skb)
 
 	TCP_SKB_CB(skb)->when = tcp_time_stamp;
 
-	
-	if (unlikely(NET_IP_ALIGN && ((unsigned long)skb->data & 3))) {
+	if (unlikely((NET_IP_ALIGN && ((unsigned long)skb->data & 3)) ||
+		     skb_headroom(skb) >= 0xFFFF)) {
 		struct sk_buff *nskb = __pskb_copy(skb, MAX_TCP_HEADER,
 						   GFP_ATOMIC);
 		err = nskb ? tcp_transmit_skb(sk, nskb, 0, GFP_ATOMIC) :
