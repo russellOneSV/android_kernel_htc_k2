@@ -157,9 +157,7 @@ static u32 smc(u32 cmd_addr)
 			__asmeq("%1", "r0")
 			__asmeq("%2", "r1")
 			__asmeq("%3", "r2")
-#ifdef REQUIRES_SEC
 			".arch_extension sec\n"
-#endif
 			"smc	#0	@ switch to secure world\n"
 			: "=r" (r0)
 			: "r" (r0), "r" (r1), "r" (r2)
@@ -257,9 +255,7 @@ s32 scm_call_atomic1(u32 svc, u32 cmd, u32 arg1)
 		__asmeq("%1", "r0")
 		__asmeq("%2", "r1")
 		__asmeq("%3", "r2")
-#ifdef REQUIRES_SEC
-			".arch_extension sec\n"
-#endif
+		".arch_extension sec\n"
 		"smc	#0	@ switch to secure world\n"
 		: "=r" (r0)
 		: "r" (r0), "r" (r1), "r" (r2)
@@ -282,9 +278,7 @@ s32 scm_call_atomic2(u32 svc, u32 cmd, u32 arg1, u32 arg2)
 		__asmeq("%2", "r1")
 		__asmeq("%3", "r2")
 		__asmeq("%4", "r3")
-#ifdef REQUIRES_SEC
-			".arch_extension sec\n"
-#endif
+		".arch_extension sec\n"
 		"smc	#0	@ switch to secure world\n"
 		: "=r" (r0)
 		: "r" (r0), "r" (r1), "r" (r2), "r" (r3));
@@ -312,9 +306,7 @@ s32 scm_call_atomic4_3(u32 svc, u32 cmd, u32 arg1, u32 arg2,
 		__asmeq("%4", "r1")
 		__asmeq("%5", "r2")
 		__asmeq("%6", "r3")
-#ifdef REQUIRES_SEC
-			".arch_extension sec\n"
-#endif
+		".arch_extension sec\n"
 		"smc	#0	@ switch to secure world\n"
 		: "=r" (r0), "=r" (r1), "=r" (r2)
 		: "r" (r0), "r" (r1), "r" (r2), "r" (r3), "r" (r4), "r" (r5));
@@ -347,9 +339,7 @@ u32 scm_get_version(void)
 			__asmeq("%1", "r1")
 			__asmeq("%2", "r0")
 			__asmeq("%3", "r1")
-#ifdef REQUIRES_SEC
 			".arch_extension sec\n"
-#endif
 			"smc	#0	@ switch to secure world\n"
 			: "=r" (r0), "=r" (r1)
 			: "r" (r0), "r" (r1)
