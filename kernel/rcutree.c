@@ -155,9 +155,9 @@ static int blimit = 10;
 static int qhimark = 10000;
 static int qlowmark = 100;
 
-module_param(blimit, long, 0);
-module_param(qhimark, long, 0);
-module_param(qlowmark, long, 0);
+module_param(blimit, int, 0);
+module_param(qhimark, int, 0);
+module_param(qlowmark, int, 0);
 
 int rcu_cpu_stall_suppress __read_mostly; 
 int rcu_cpu_stall_timeout __read_mostly = CONFIG_RCU_CPU_STALL_TIMEOUT;
