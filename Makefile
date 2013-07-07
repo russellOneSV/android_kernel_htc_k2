@@ -1,6 +1,7 @@
 VERSION = 3
 PATCHLEVEL = 4
 SUBLEVEL = 15
+EXTRAVERSION =-Jmz
 NAME = Saber-toothed Squirrel
 
 # *DOCUMENTATION*
