@@ -174,6 +174,20 @@ config INPUT_KEYRESET
 	  To compile this driver as a module, choose M here: the
 	  module will be called keyreset.
 
+config TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE
+        tristate "Sweep2Wake for SYNAPTICS_3k based touchscreens"
+        default y
+          
+config TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_START
+  	depends on TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE
+        string "Sweep2Wake start button name"
+        default "BACK"
+
+config TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE_END
+        depends on TOUCHSCREEN_SYNAPTICS_SWEEP2WAKE
+        string "Sweep2Wake end button name"
+        default "MENU"
+
 comment "Input Device Drivers"
 
 source "drivers/input/keyboard/Kconfig"
