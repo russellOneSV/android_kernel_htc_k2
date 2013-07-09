@@ -713,8 +713,6 @@ static void __init __reserve_region_with_split(struct resource *root,
 			res->start = conflict->end + 1;
 		}
 	}
->>>>>>> 3993e3a... Linux 3.4.31
-
 }
 
 void __init reserve_region_with_split(struct resource *root,
