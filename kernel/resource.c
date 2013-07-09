@@ -660,7 +660,7 @@ static void __init __reserve_region_with_split(struct resource *root,
 		const char *name)
 {
 	struct resource *parent = root;
-	struct resource *conflict;
+	struct resource *conflict = 0;
 	struct resource *res = kzalloc(sizeof(*res), GFP_ATOMIC);
 	struct resource *next_res = NULL;
 
