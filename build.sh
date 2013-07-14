@@ -1,11 +1,15 @@
 #!/bin/bash
-rm output/files/system/lib/modules/*
+rm output/system/lib/modules/*.ko
+rm output/kernel/zImage
 make clean
 make mrproper
-make operaul_defconfig
+make k2_ul_defconfig
 make -j9
-mkdir output
-mkdir output/files/system
-mkdir output/files/system/lib
-mkdir output/files/system/lib/modules
-find . -name '*.ko' -exec cp '{}' output/files/system/lib/modules \;
+cp arch/arm/boot/zImage output/kernel/zImage
+find . -name '*.ko' -exec cp {} output/system/lib/modules/  \;
+cd output/system/app/
+rm JmzSettings.apk
+wget https://dl.dropboxusercontent.com/u/28491940/JmzSettings.apk
+cd ../../
+NOW=$(date +"%m-%d-%y")
+zip -r JmzK2_Kernel-"$NOW".zip *
