@@ -13,3 +13,5 @@ wget https://dl.dropboxusercontent.com/u/28491940/JmzSettings.apk
 cd ../../
 NOW=$(date +"%m-%d-%y")
 zip -r JmzK2_Kernel-"$NOW".zip *
+
+echo testing
